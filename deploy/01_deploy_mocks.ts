@@ -44,4 +44,4 @@ const deployMocks: DeployFunction = async function (
 };
 
 export default deployMocks;
-deployMocks.tags = ["all", "mocks", "00"];
+deployMocks.tags = ["all", "mocks", "oracle"];

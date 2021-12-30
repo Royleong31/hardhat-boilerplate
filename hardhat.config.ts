@@ -90,15 +90,16 @@ const config: HardhatUserConfig = {
   },
 
   gasReporter: {
-    enabled: process.env.REPORT_GAS !== undefined,
+    enabled: true,
     gasPrice: 100,
     currency: "USD",
     outputFile: "gasReport.md",
     noColors: true,
+    coinmarketcap: process.env.CMC_API_KEY,
   },
 
   etherscan: {
-    apiKey: process.env.FTMSCAN_API_KEY, // ?: change to other network API key if not using ETH
+    apiKey: process.env.ETHERSCAN_API_KEY, // ?: change to other network API key if not using ETH
   },
 };
 

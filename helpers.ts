@@ -17,6 +17,7 @@ export function getHDWallet() {
 export const timer = (time: number) =>
   new Promise<void>((resolve) => setTimeout(() => resolve(), time));
 
+// ?: verify the contract with the ETHERSCAN API key. (change the key for non-ETH chains)
 export async function verify(
   address: string,
   hre: HardhatRuntimeEnvironment,
@@ -31,9 +32,10 @@ export async function verify(
   return true;
 }
 
-export const saveAbi = (ticker: string, networkName: string) => {
-  const abiLocation = `./deployments/${networkName}/${ticker}.json`;
+// ?: use this to store the ABI in frontend folder
+export const saveAbi = (contractName: string, networkName: string) => {
+  const abiLocation = `./deployments/${networkName}/${contractName}.json`;
   const abi = fs.readFileSync(abiLocation, { encoding: "utf8" });
 
-  fs.writeFileSync(`./frontend/abi/${ticker}.json`, abi);
+  fs.writeFileSync(`./frontend/abi/${contractName}.json`, abi);
 };

@@ -5,7 +5,7 @@ import "@chainlink/contracts/src/v0.8/VRFConsumerBase.sol";
 import "@chainlink/contracts/src/v0.8/interfaces/AggregatorV3Interface.sol";
 import "@openzeppelin/contracts/access/Ownable.sol";
 
-contract Lottery is VRFConsumerBase, Ownable {
+contract Oracle is VRFConsumerBase, Ownable {
     address payable recentWinner;
 
     bytes32 public immutable keyHash;
@@ -16,6 +16,8 @@ contract Lottery is VRFConsumerBase, Ownable {
 
     event RequestedRandomness(bytes32 requestId);
     event ReceivedRandomness(uint256 randomResult, bytes32 requestId);
+    event Number(uint256 initialNum, uint256 finalNum, string remarks);
+    event TestingEvent(uint256 number);
 
     constructor(
         address _vrfCoordinator,
@@ -29,17 +31,12 @@ contract Lottery is VRFConsumerBase, Ownable {
         ethUsdPriceFeed = AggregatorV3Interface(_ethUsdPriceFeed);
     }
 
-    function getEthPriceInUsd() public view returns (uint256 priceInUsd) {
-        (
-            uint80 roundId,
-            int256 answer, // ?: the price
-            uint256 startedAt,
-            uint256 updatedAt,
-            uint80 answeredInRound
-        ) = ethUsdPriceFeed.latestRoundData();
+    function getEthPriceInUsd() public view returns (uint256) {
+        (, int256 price, , , ) = ethUsdPriceFeed.latestRoundData();
+        uint8 decimals = ethUsdPriceFeed.decimals();
 
-        uint256 decimals = ethUsdPriceFeed.decimals();
-        priceInUsd = uint256(answer) / decimals;
+        uint256 priceInUsd = uint256(price) / 10**decimals;
+        return priceInUsd;
     }
 
     function getRandomNumber() public onlyOwner {
@@ -54,5 +51,11 @@ contract Lottery is VRFConsumerBase, Ownable {
     {
         randomResult = randomness;
         emit ReceivedRandomness(randomResult, requestId);
+    }
+
+    function add100(uint256 number) public returns (uint256) {
+        emit Number(number, number + 100, "Addition");
+        emit TestingEvent(number);
+        return number + 100;
     }
 }

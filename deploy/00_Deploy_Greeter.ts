@@ -59,4 +59,4 @@ const deployGreeter: DeployFunction = async function (
 };
 
 export default deployGreeter;
-deployGreeter.tags = ["greeter"];
+deployGreeter.tags = ["all", "greeter"];

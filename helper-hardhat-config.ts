@@ -6,7 +6,6 @@
 export interface networkConfigItem {
   name: string;
   ethUsdPriceFeed?: string;
-  fundAmount?: string;
   keyHash?: string;
   fee?: string;
   linkToken?: string;
@@ -23,7 +22,6 @@ export const networkConfig: networkConfigInfo = {
     fee: "100000000000000000",
     keyHash:
       "0x6c3699283bda56ad74f6b855546325b68d482e983852a7a82979cc4807b641f4",
-    fundAmount: "1000000000000000000",
   },
 
   1: {
@@ -33,7 +31,6 @@ export const networkConfig: networkConfigInfo = {
       "0xAA77729D3466CA35AE8D28B3BBAC7CC36A5031EFDC430821C02BC31A238AF445",
     vrfCoordinator: "0xf0d54349aDdcf704F77AE15b96510dEA15cb7952",
     fee: "2000000000000000000",
-    fundAmount: "20000000000000000000",
   },
 
   4: {
@@ -44,7 +41,6 @@ export const networkConfig: networkConfigInfo = {
       "0x2ed0feb3e7fd2022120aa84fab1945545a9f2ffc9076fd6156fa96eaff4c1311",
     vrfCoordinator: "0xb3dCcb4Cf7a26f6cf6B120Cf5A73875B7BBc655B",
     fee: "100000000000000000",
-    fundAmount: "1000000000000000000",
   },
 
   42: {
@@ -55,7 +51,6 @@ export const networkConfig: networkConfigInfo = {
       "0x6c3699283bda56ad74f6b855546325b68d482e983852a7a82979cc4807b641f4",
     vrfCoordinator: "0xdD3782915140c8f3b190B5D67eAc6dc5760C46E9",
     fee: "100000000000000000",
-    fundAmount: "1000000000000000000",
   },
 
   56: {
@@ -66,7 +61,6 @@ export const networkConfig: networkConfigInfo = {
       "0xc251acd21ec4fb7f31bb8868288bfdbaeb4fbfec2df3735ddbd4f7dc8d60103c",
     vrfCoordinator: "0x747973a5A2a4Ae1D3a8fDF5479f1514F65Db9C31",
     fee: "200000000000000000",
-    fundAmount: "200000000000000000",
   },
 
   137: {
@@ -77,15 +71,16 @@ export const networkConfig: networkConfigInfo = {
     ethUsdPriceFeed: "0xF9680D99D6C9589e2a93a78A04A279e509205945",
     vrfCoordinator: "0x3d2341ADb2D31f1c5530cDC622016af293177AE0",
     fee: "100000000000000",
-    fundAmount: "100000000000000",
   },
 
   31337: {
     name: "localhost",
-    fee: "100000000000000000",
+    linkToken: "0xb0897686c545045aFc77CF20eC7A532E3120E0F1",
     keyHash:
-      "0x6c3699283bda56ad74f6b855546325b68d482e983852a7a82979cc4807b641f4",
-    fundAmount: "1000000000000000000",
+      "0xf86195cf7690c55907b2b611ebb7343a6f649bff128701cc542f0569e2c549da",
+    ethUsdPriceFeed: "0xF9680D99D6C9589e2a93a78A04A279e509205945",
+    vrfCoordinator: "0x3d2341ADb2D31f1c5530cDC622016af293177AE0",
+    fee: "100000000000000",
   },
 
   25: {

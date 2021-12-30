@@ -1,0 +1,11 @@
+import { HardhatUserConfig } from "hardhat/config";
+import "@typechain/hardhat";
+import "@nomiclabs/hardhat-etherscan";
+import "@nomiclabs/hardhat-waffle";
+import "@nomiclabs/hardhat-ethers";
+import "solidity-coverage";
+import "hardhat-deploy";
+import "hardhat-gas-reporter";
+import "@appliedblockchain/chainlink-plugins-fund-link";
+declare const config: HardhatUserConfig;
+export default config;
