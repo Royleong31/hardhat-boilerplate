@@ -74,6 +74,13 @@ const deployMocks: DeployFunction = async function (
 
     const result = await verify(oracle.address, hre, oracleArgs);
     if (result) log("Verification successful!");
+
+    log("Backup Verification");
+    log(
+      `Verify with:\n npx hardhat verify --network ${hre.network.name} ${
+        oracleContract.address
+      } ${oracleArgs.toString().replace(/,/g, " ")}`
+    );
   }
 };
 
